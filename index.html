@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Tresor Tshibangu Kalembo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f8f9fa;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('/image_1.jpg') no-repeat center center/cover;
+      height: 100vh;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .hero .carousel-text {
+      color: #ffd700;
+      font-size: 1.5rem;
+    }
+
+    /* Section Styling */
+    .highlight {
+      color: #007bff;
+      font-weight: bold;
+    }
+
+    .list-item {
+      margin-bottom: 1rem;
+    }
+
+    .list-item span {
+      display: block;
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+
+    /* Card Hover Effect */
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);  /* Slight zoom effect */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Add shadow on hover */
+    }
+
+    /* Card Layout */
+    .side-by-side .card {
+      height: 100%;
+    }
+
+    /* Services Section */
+    .services .card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Contact Me Section */
+    .contact-section {
+      background: #343a40;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .contact-section h3 {
+      margin-bottom: 20px;
+    }
+
+    .form-control {
+      margin-bottom: 15px;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .contact-icons a {
+      color: white;
+      margin-right: 20px;
+      font-size: 1.5rem;
+    }
+
+    .contact-icons a:hover {
+      color: #007bff;
+    }
+
+    /* Footer */
+    footer {
+      background: #343a40;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      margin-top: auto;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      background-color: #343a40;
+    }
+
+    .navbar-nav .nav-link {
+      color: white;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #007bff;
+    }
+
+    /* Photo Gallery Section */
+    .photo-gallery-container {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .photo-gallery-wrapper {
+      display: flex;
+      animation: move-gallery 15s linear infinite;
+    }
+
+    .card {
+      flex: 0 0 auto;
+      width: 300px; /* Set the width of each card */
+      margin-right: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    /* Keyframes for moving the gallery horizontally */
+    @keyframes move-gallery {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar (Header) -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Tresor T. Kalembo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#accomplishments">Accomplishments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>I am Tresor Tshibangu Kalembo</h1>
+      <p class="carousel-text">I am a <span id="carousel-words"></span></p>
+      <p>"Innovation distinguishes between a leader and a follower." - Steve Jobs</p>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section class="container about-me py-5" id="about">
+    <div class="row">
+      <!-- Image section (20%) -->
+      <div class="col-md-2 d-flex justify-content-center align-items-center">
+        <img src="/faceID.jpg" alt="Tresor Tshibangu Kalembo" style="width: 80%; object-fit: cover;">
+      </div>
+
+      <!-- About Me section (30%) -->
+      <div class="col-md-3">
+        <h3>About Me</h3>
+        <p>Hi, I am Tresor Tshibangu Kalembo, a passionate tech enthusiast specializing in software development and network administration. My goal is to create innovative solutions that empower businesses and individuals.</p>
+      </div>
+
+      <!-- My Skills section (50%) -->
+      <div class="col-md-7">
+        <h3>My Skills</h3>
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <td>Web Development</td>
+              <td>HTML, CSS, JavaScript, Bootstrap</td>
+            </tr>
+            <tr>
+              <td>Desktop Apps</td>
+              <td>C#, SQL</td>
+            </tr>
+            <tr>
+              <td>Networking</td>
+              <td>Routing, Switching, Security</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accomplishments Section -->
+  <section class="container py-5" id="accomplishments">
+    <h3 class="text-center mb-4">Accomplishments</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card p-4">
+          <h4>Career</h4>
+          <ul>
+            <li class="list-item">
+              <span class="highlight">GIS Analyst at Esri Malaysia (November 2023 - Present) </span>
+              <span>Specializes in ArcGIS Enterprise deployment, WebGISDR configurations, disaster recovery planning, and system optimization.</span>
+            </li>
+            <li class="list-item">
+              <span class="highlight">Assistant Trainer at Kidocode (January - April 2022) </span> 
+              <span>Taught students aged 6 to 18 the basics of Python programming and C++ for electronics and robotics.</span>
+            </li>
+            <li class="list-item">
+              <span class="highlight">Peer Tutor at APU (August - November 2020) </span>
+              <span>Tutored classmates in mathematical concepts of computing, gaining multitasking, teamwork, and supervisory skills.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card p-4">
+          <h4>Academic</h4>
+          <ul>
+            <li class="list-item">
+              <span class="highlight">Bachelor with Honors in IT (Network Computing) at Asia Pacific University (March 2020 - March 2023) </span>
+            </li>
+            <li class="list-item">
+              <span class="highlight">Bachelor with Honors in IT (Network Computing) at De Montfort University (March 2020 - March 2023) </span>
+            </li>
+            <li class="list-item">
+              <span class="highlight">Diploma in Information Technology at Tshwane University of Technology (July 2017 - December 2019) </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="container services py-5" id="services">
+    <h3 class="text-center mb-4">Services Offered</h3>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card text-center p-4">
+          <h4 class="highlight">Web Development</h4>
+          <p>Creating responsive, dynamic websites using CSS, Bootstrap, JavaScript, and SQL to bring ideas to life.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center p-4">
+          <h4 class="highlight">Windows Desktop Applications</h4>
+          <p>Developing efficient and reliable desktop apps using C# and SQL for seamless user experiences.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center p-4">
+          <h4 class="highlight">Network Administration</h4>
+          <p>Setting up, managing, and optimizing secure networks for businesses of all sizes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery Section -->
+  <section class="container py-5" id="gallery">
+    <h3 class="text-center mb-4">Photo Gallery</h3>
+    <div class="photo-gallery-container">
+      <div class="photo-gallery-wrapper">
+        <div class="card">
+          <img src="/image_1.jpg" class="card-img-top" alt="Image 1">
+          <div class="card-body">
+            <p class="card-text">Description of image 1.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="/image_1.jpg" class="card-img-top" alt="Image 2">
+          <div class="card-body">
+            <p class="card-text">Description of image 1.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="/image_1.jpg" class="card-img-top" alt="Image 3">
+          <div class="card-body">
+            <p class="card-text">Description of image 1.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="/image_1.jpg" class="card-img-top" alt="Image 3">
+          <div class="card-body">
+            <p class="card-text">Description of image 1.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="/image_1.jpg" class="card-img-top" alt="Image 3">
+          <div class="card-body">
+            <p class="card-text">Description of image 1.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="/image_1.jpg" class="card-img-top" alt="Image 3">
+          <div class="card-body">
+            <p class="card-text">Description of image 1.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="/image_1.jpg" class="card-img-top" alt="Image 3">
+          <div class="card-body">
+            <p class="card-text">Description of image 1.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Me Section -->
+  <section class="contact-section text-center" id="contact">
+    <div class="container">
+      <h3>Contact Me</h3>
+      <form>
+        <input type="text" class="form-control" placeholder="Your Name" required>
+        <input type="email" class="form-control" placeholder="Your Email" required>
+        <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn btn-primary mt-3">Send Message</button>
+      </form>
+      <div class="contact-icons mt-4">
+        <a href="tel:+1234567890" class="bi bi-telephone">Phone</a>
+        <a href="https://www.linkedin.com/in/tresortkalembo" class="bi bi-linkedin">LinkedIn</a>
+        <a href="https://goo.gl/maps/xyz" class="bi bi-geo-alt">Address</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Tresor Tshibangu Kalembo. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // JavaScript for changing the carousel-text dynamically
+    const words = ['Web Developer', 'Software Engineer', 'Technology Enthusiast', 'Problem Solver'];
+    let currentWordIndex = 0;
+    const carouselWordsElement = document.getElementById('carousel-words');
+
+    function changeWord() {
+      carouselWordsElement.textContent = words[currentWordIndex];
+      currentWordIndex = (currentWordIndex + 1) % words.length;
+    }
+
+    setInterval(changeWord, 2000); // Change word every 2 seconds
+  </script>
+
+</body>
+</html>
