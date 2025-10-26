@@ -26,53 +26,248 @@
       font-family: 'Inter', sans-serif;
       line-height: 1.6;
       color: var(--text-primary);
-      background-color: var(--light-bg);
+      background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+      min-height: 100vh;
     }
 
-    /* Navigation */
-    .navbar {
-      background: rgba(31, 41, 55, 0.95) !important;
-      backdrop-filter: blur(10px);
-      padding: 1rem 0;
+    /* Back to Home */
+    .back-to-home {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      z-index: 1000;
     }
 
-    .navbar-brand {
-      font-weight: 700;
-      font-size: 1.8rem;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .navbar-nav .nav-link {
-      color: var(--text-light) !important;
-      font-weight: 500;
-      margin: 0 0.5rem;
-      padding: 0.5rem 1rem !important;
-      border-radius: 25px;
-      transition: all 0.3s ease;
-    }
-
-    .navbar-nav .nav-link:hover,
-    .navbar-nav .nav-link.active {
-      background: var(--gradient-accent);
-      color: white !important;
-      transform: translateY(-2px);
-    }
-
-    /* Page Header */
-    .page-header {
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       background: var(--gradient-primary);
       color: white;
-      padding: 8rem 0 4rem;
-      margin-top: 76px;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .home-link:hover {
+      background: var(--gradient-accent);
+      transform: translateY(-2px);
+      color: white;
+    }
+
+    /* Page Header - Hero Style */
+    .page-header {
+      background: url('facepic.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: var(--text-light);
+      text-align: center;
+      width: 100%;
     }
 
     .page-title {
-      font-size: 3.5rem;
+      font-size: clamp(3rem, 6vw, 5rem);
       font-weight: 700;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.5s forwards;
+    }
+
+    .page-header .lead {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 1s forwards;
+    }
+
+    /* Text Card with Blurred Background */
+    .header-text-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      margin: 2rem auto;
+      max-width: 600px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-text-card .page-title {
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .header-text-card .lead {
+      color: white;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      font-size: 1.3rem;
+      margin-bottom: 0;
+    }
+
+    /* Logo Section */
+    .logo-section {
+      margin-top: 2rem;
+      padding: 2rem 0;
+    }
+
+    .main-logo {
+      width: 120px;
+      height: 120px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      font-size: 3rem;
+      color: var(--primary-color);
+      border: 4px solid white;
+    }
+
+    .brand-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .brand-logo {
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: white;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .brand-logo:hover {
+      background: white;
+      color: var(--primary-color);
+      transform: translateY(-5px);
+    }
+
+    /* Professional Certifications */
+    .cert-section {
+      background: white;
+      padding: 3rem 0;
+      margin: 2rem 0;
+    }
+
+    .cert-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .cert-logo {
+      width: 80px;
+      height: 80px;
+      background: var(--light-bg);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--primary-color);
+      transition: all 0.3s ease;
+      border: 2px solid var(--primary-color);
+      position: relative;
+    }
+
+    .cert-logo:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .cert-label {
+      text-align: center;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    /* Special styling for contact method logos */
+    .cert-logo .fa-whatsapp {
+      color: #25D366;
+    }
+
+    .cert-logo:hover .fa-whatsapp {
+      color: white;
+    }
+
+    .cert-logo .fa-envelope {
+      color: #EA4335;
+    }
+
+    .cert-logo:hover .fa-envelope {
+      color: white;
+    }
+
+    .brand-logo .fa-whatsapp {
+      color: #25D366;
+    }
+
+    .brand-logo:hover .fa-whatsapp {
+      color: #25D366;
+    }
+
+    .brand-logo .fa-envelope {
+      color: #EA4335;
+    }
+
+    .brand-logo:hover .fa-envelope {
+      color: #EA4335;
+    }
+
+    /* WhatsApp brand background on hover */
+    .cert-logo:has(.fa-whatsapp):hover {
+      background: #25D366 !important;
+      border-color: #25D366 !important;
+    }
+
+    /* Email brand background on hover */
+    .cert-logo:has(.fa-envelope):hover {
+      background: #EA4335 !important;
+      border-color: #EA4335 !important;
     }
 
     /* Contact Section */
@@ -81,89 +276,408 @@
     }
 
     .contact-card {
-      background: white;
-      border-radius: 20px;
-      padding: 2.5rem;
-      box-shadow: var(--shadow-lg);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      padding: 0;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
       margin-bottom: 2rem;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      overflow: hidden;
     }
 
     .contact-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 35px 70px rgba(0, 0, 0, 0.2);
     }
 
-    .contact-info-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      background: var(--light-bg);
-      border-radius: 15px;
-      transition: all 0.3s ease;
-    }
-
-    .contact-info-item:hover {
-      background: var(--gradient-primary);
+    .contact-card-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 2.5rem 2rem;
+      text-align: center;
       color: white;
-      transform: translateX(10px);
+      position: relative;
+      overflow: hidden;
     }
 
-    .contact-icon {
-      width: 60px;
-      height: 60px;
-      background: var(--gradient-primary);
+    .contact-card-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .contact-header-icon {
+      background: rgba(255, 255, 255, 0.2);
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 1.5rem;
-      font-size: 1.5rem;
+      margin: 0 auto 1.5rem;
+      font-size: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-card-title {
+      margin: 0 0 0.5rem;
+      font-size: 2rem;
+      font-weight: 700;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-card-subtitle {
+      margin: 0;
+      opacity: 0.9;
+      font-size: 1.1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-items-container {
+      padding: 2rem;
+    }
+
+    .contact-info-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 2rem;
+      padding: 2rem 1.5rem;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.9));
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      height: 100%;
+    }
+
+    .contact-info-item:hover {
+      background: linear-gradient(135deg, #667eea, #764ba2);
       color: white;
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    }
+
+    .contact-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 2rem;
+      color: white;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .location-icon {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .whatsapp-icon {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+    }
+
+    .email-icon {
+      background: linear-gradient(135deg, #EA4335, #DD2C00);
+    }
+
+    .website-icon {
+      background: linear-gradient(135deg, #4285F4, #1565C0);
     }
 
     .contact-info-item:hover .contact-icon {
-      background: white;
-      color: var(--primary-color);
+      background: rgba(255, 255, 255, 0.2) !important;
+      color: white;
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    /* Special WhatsApp and Email Logo Styling */
+    .contact-info-item .contact-icon .fa-whatsapp {
+      color: #25D366;
+      font-size: 1.8rem;
+    }
+
+    .contact-info-item:hover .contact-icon .fa-whatsapp {
+      color: #25D366;
+    }
+
+    .contact-info-item .contact-icon .fa-envelope {
+      color: #EA4335;
+      font-size: 1.8rem;
+    }
+
+    .contact-info-item:hover .contact-icon .fa-envelope {
+      color: #EA4335;
+    }
+
+    /* WhatsApp specific styling */
+    .contact-info-item:has(.fa-whatsapp) .contact-icon {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+    }
+
+    .contact-info-item:has(.fa-whatsapp):hover .contact-icon {
+      background: #25D366;
+      border: 3px solid #25D366;
+    }
+
+    .contact-info-item:has(.fa-whatsapp) .contact-icon .fa-whatsapp {
+      color: white;
+    }
+
+    /* Email specific styling */
+    .contact-info-item:has(.fa-envelope) .contact-icon {
+      background: linear-gradient(135deg, #EA4335, #DD4E31);
+    }
+
+    .contact-info-item:has(.fa-envelope):hover .contact-icon {
+      background: #EA4335;
+      border: 3px solid #EA4335;
+    }
+
+    .contact-info-item:has(.fa-envelope) .contact-icon .fa-envelope {
+      color: white;
+    }
+
+    /* Enhanced Contact Buttons */
+    .contact-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 0.8rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+
+    .contact-action-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+    }
+
+    .whatsapp-action-btn {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+      border: 3px solid #25D366;
+    }
+
+    .whatsapp-action-btn:hover {
+      background: #25D366;
+      color: white;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    }
+
+    .email-action-btn {
+      background: linear-gradient(135deg, #EA4335, #DD4E31);
+      color: white;
+      border: 3px solid #EA4335;
+    }
+
+    .email-action-btn:hover {
+      background: #EA4335;
+      color: white;
+      box-shadow: 0 10px 25px rgba(234, 67, 53, 0.4);
+    }
+
+    .website-action-btn {
+      background: linear-gradient(135deg, #4285F4, #1a73e8);
+      color: white;
+      border: 3px solid #4285F4;
+    }
+
+    .website-action-btn:hover {
+      background: #4285F4;
+      color: white;
+      box-shadow: 0 10px 25px rgba(66, 133, 244, 0.4);
+    }
+
+    .btn-logo {
+      font-size: 1rem;
     }
 
     .contact-details h5 {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
       font-weight: 600;
+      font-size: 1rem;
     }
 
     .contact-details p {
-      margin: 0;
+      margin: 0 0 0.5rem;
       color: var(--text-secondary);
+      font-size: 0.8rem;
+      line-height: 1.3;
     }
 
     .contact-info-item:hover .contact-details p {
       color: rgba(255, 255, 255, 0.8);
     }
 
-    /* Contact Form */
+    /* Enhanced Contact Form */
+    .form-card {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .form-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      border-radius: 25px 25px 0 0;
+    }
+
+    .form-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .form-header-icon {
+      background: rgba(255, 255, 255, 0.2);
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.8rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .form-title {
+      margin: 0 0 0.5rem;
+      font-size: 1.8rem;
+      font-weight: 700;
+      position: relative;
+      z-index: 2;
+    }
+
+    .form-subtitle {
+      margin: 0;
+      opacity: 0.9;
+      font-size: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .form-container {
+      padding: 2.5rem;
+    }
+
     .form-group {
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .form-label {
       font-weight: 600;
       color: var(--primary-color);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .form-icon {
+      color: var(--accent-color);
+      font-size: 0.9rem;
     }
 
     .form-control {
       border: 2px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
       font-size: 1rem;
       transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.9);
     }
 
     .form-control:focus {
       border-color: var(--primary-color);
-      box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
+      box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.15);
+      background: white;
+      transform: translateY(-2px);
+    }
+
+    .form-control::placeholder {
+      color: #9ca3af;
+      font-style: italic;
+    }
+
+    .form-submit-container {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+
+    .enhanced-submit {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      color: white;
+      padding: 1.2rem 3rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .enhanced-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+      background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+    }
+
+    .enhanced-submit:active {
+      transform: translateY(-1px);
+    }
+
+    .btn-text, .btn-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-icon {
+      font-size: 1rem;
+    }
+
+    .form-note {
+      margin-top: 1rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      font-style: italic;
     }
 
     .btn-submit {
@@ -280,48 +794,33 @@
       color: white;
       transform: translateY(-3px);
     }
+
+    /* ==================== ANIMATIONS ==================== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Tresor T. Kalembo</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="experience.html">Experience</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="services.html">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="projects.html">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="contact.html">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Page Header -->
-  <section class="page-header">
-    <div class="container text-center">
-      <h1 class="page-title">Get In Touch</h1>
-      <p class="lead">Let's Turn Your Ideas Into Reality</p>
-    </div>
-  </section>
+  <!-- Back to Home -->
+  <div class="back-to-home">
+    <a href="index.html" class="home-link">
+      <i class="fas fa-home"></i>
+      Back to Home
+    </a>
+  </div>
 
   <!-- Contact Section -->
   <section class="contact-section">
@@ -329,206 +828,180 @@
       <div class="row">
         
         <!-- Contact Information -->
-        <div class="col-lg-5">
+        <div class="col-12 mb-5">
           <div class="contact-card">
-            <h3 class="section-title text-start">Contact Information</h3>
+            <div class="contact-card-header">
+              <div class="contact-header-icon">
+                <i class="fas fa-address-book"></i>
+              </div>
+              <h3 class="contact-card-title">Get In Touch</h3>
+              <p class="contact-card-subtitle">Ready to start your next project? Let's connect!</p>
+            </div>
             
-            <div class="contact-info-item">
-              <div class="contact-icon">
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
-              <div class="contact-details">
-                <h5>Location</h5>
-                <p>Kinshasa, Democratic Republic of Congo<br>Available for Remote Work Worldwide</p>
+            <div class="contact-items-container">
+              <div class="row">
+                <div class="col-md-6 col-lg-3">
+                  <div class="contact-info-item">
+                    <div class="contact-icon location-icon">
+                      <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                      <h5>Location</h5>
+                      <p>Jalan Kontraktor U1/14, Hicom-glenmarie Industrial Park<br>40150 Shah Alam, Selangor, Malaysia</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                  <div class="contact-info-item">
+                    <div class="contact-icon whatsapp-icon">
+                      <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-details">
+                      <h5>WhatsApp</h5>
+                      <p>Available for instant messaging and calls</p>
+                      <a href="https://wa.me/601137923985" class="contact-action-btn whatsapp-action-btn" target="_blank">
+                        <i class="fab fa-whatsapp btn-logo"></i>
+                        <span>Message Me</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                  <div class="contact-info-item">
+                    <div class="contact-icon email-icon">
+                      <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                      <h5>Email</h5>
+                      <p>For professional inquiries and collaborations</p>
+                      <a href="mailto:tresorignace101@gmail.com" class="contact-action-btn email-action-btn">
+                        <i class="fas fa-envelope btn-logo"></i>
+                        <span>Send Email</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                  <div class="contact-info-item">
+                    <div class="contact-icon website-icon">
+                      <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="contact-details">
+                      <h5>Website</h5>
+                      <p>Professional Solutions & Services</p>
+                      <a href="https://bangusolutions.com" class="contact-action-btn website-action-btn" target="_blank">
+                        <i class="fas fa-globe btn-logo"></i>
+                        <span>Visit Website</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="contact-info-item">
-              <div class="contact-icon">
-                <i class="fas fa-phone"></i>
-              </div>
-              <div class="contact-details">
-                <h5>Phone</h5>
-                <p>+243 XX XXX XXXX<br>Available 24/7 for urgent matters</p>
-              </div>
-            </div>
-
-            <div class="contact-info-item">
-              <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div class="contact-details">
-                <h5>Email</h5>
-                <p>tresor.kalembo@email.com<br>Response within 24 hours</p>
-              </div>
-            </div>
-
-            <div class="contact-info-item">
-              <div class="contact-icon">
-                <i class="fas fa-globe"></i>
-              </div>
-              <div class="contact-details">
-                <h5>Website</h5>
-                <p>www.tresorkalembo.com<br>Portfolio & Blog Updates</p>
-              </div>
-            </div>
-
-            <!-- Office Hours -->
-            <div class="office-hours">
-              <h5>Availability</h5>
-              <div class="hours-item">
-                <span>Monday - Friday</span>
-                <span>8:00 AM - 6:00 PM</span>
-              </div>
-              <div class="hours-item">
-                <span>Saturday</span>
-                <span>10:00 AM - 4:00 PM</span>
-              </div>
-              <div class="hours-item">
-                <span>Sunday</span>
-                <span>Emergency Only</span>
-              </div>
-              <div class="hours-item">
-                <span>Time Zone</span>
-                <span>CAT (GMT+2)</span>
-              </div>
-            </div>
           </div>
         </div>
 
         <!-- Contact Form -->
-        <div class="col-lg-7">
-          <div class="contact-card">
-            <h3 class="section-title text-start">Send Message</h3>
+        <div class="col-12">
+          <div class="contact-card form-card">
+            <div class="form-header">
+              <div class="form-header-icon">
+                <i class="fas fa-paper-plane"></i>
+              </div>
+              <h3 class="form-title">Send Message</h3>
+              <p class="form-subtitle">Let's discuss your project and bring your ideas to life</p>
+            </div>
             
-            <form id="contactForm">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">First Name *</label>
-                    <input type="text" class="form-control" name="firstName" required>
+            <div class="form-container">
+              <form id="contactForm">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">
+                        <i class="fas fa-user form-icon"></i>
+                        First Name *
+                      </label>
+                      <input type="text" class="form-control" name="firstName" placeholder="Enter your first name" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">
+                        <i class="fas fa-user form-icon"></i>
+                        Last Name *
+                      </label>
+                      <input type="text" class="form-control" name="lastName" placeholder="Enter your last name" required>
+                    </div>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Last Name *</label>
-                    <input type="text" class="form-control" name="lastName" required>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">
+                        <i class="fas fa-envelope form-icon"></i>
+                        Email Address *
+                      </label>
+                      <input type="email" class="form-control" name="email" placeholder="your.email@example.com" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">
+                        <i class="fas fa-phone form-icon"></i>
+                        Phone Number
+                      </label>
+                      <input type="tel" class="form-control" name="phone" placeholder="+60 123 456 789">
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Email Address *</label>
-                    <input type="email" class="form-control" name="email" required>
-                  </div>
+                <div class="form-group">
+                  <label class="form-label">
+                    <i class="fas fa-clock form-icon"></i>
+                    Project Timeline
+                  </label>
+                  <select class="form-control" name="timeline">
+                    <option value="">Select your preferred timeline</option>
+                    <option value="asap">ASAP (Urgent)</option>
+                    <option value="1-week">Within 1 week</option>
+                    <option value="2-4-weeks">2-4 weeks</option>
+                    <option value="1-3-months">1-3 months</option>
+                    <option value="3-months-plus">3+ months</option>
+                    <option value="flexible">Flexible timeline</option>
+                  </select>
                 </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Phone Number</label>
-                    <input type="tel" class="form-control" name="phone">
-                  </div>
+
+                <div class="form-group">
+                  <label class="form-label">
+                    <i class="fas fa-comment-dots form-icon"></i>
+                    Project Details *
+                  </label>
+                  <textarea class="form-control" name="message" rows="6" placeholder="Tell me about your project, requirements, goals, and any specific features you need. The more details you provide, the better I can understand and help you!" required></textarea>
                 </div>
-              </div>
 
-              <div class="form-group">
-                <label class="form-label">Company/Organization</label>
-                <input type="text" class="form-control" name="company">
-              </div>
-
-              <div class="form-group">
-                <label class="form-label">Service Needed</label>
-                <select class="form-control" name="service">
-                  <option value="">Select a service</option>
-                  <option value="web-development">Web Development</option>
-                  <option value="desktop-apps">Desktop Applications</option>
-                  <option value="network-admin">Network Administration</option>
-                  <option value="gis-solutions">GIS Solutions</option>
-                  <option value="tech-training">Technical Training</option>
-                  <option value="consulting">Technical Consulting</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label">Project Budget</label>
-                <select class="form-control" name="budget">
-                  <option value="">Select budget range</option>
-                  <option value="under-500">Under $500</option>
-                  <option value="500-1000">$500 - $1,000</option>
-                  <option value="1000-2500">$1,000 - $2,500</option>
-                  <option value="2500-5000">$2,500 - $5,000</option>
-                  <option value="5000-plus">$5,000+</option>
-                  <option value="discuss">Let's Discuss</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label">Project Timeline</label>
-                <select class="form-control" name="timeline">
-                  <option value="">Select timeline</option>
-                  <option value="asap">ASAP</option>
-                  <option value="1-week">Within 1 week</option>
-                  <option value="2-4-weeks">2-4 weeks</option>
-                  <option value="1-3-months">1-3 months</option>
-                  <option value="3-months-plus">3+ months</option>
-                  <option value="flexible">Flexible</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label">Message *</label>
-                <textarea class="form-control" name="message" rows="5" placeholder="Tell me about your project, requirements, and goals..." required></textarea>
-              </div>
-
-              <button type="submit" class="btn-submit">
-                <i class="fas fa-paper-plane me-2"></i>Send Message
-              </button>
-            </form>
+                <div class="form-submit-container">
+                  <button type="submit" class="btn-submit enhanced-submit">
+                    <span class="btn-text">
+                      <i class="fas fa-paper-plane btn-icon"></i>
+                      Send Message
+                    </span>
+                    <span class="btn-loading" style="display: none;">
+                      <i class="fas fa-spinner fa-spin btn-icon"></i>
+                      Sending...
+                    </span>
+                  </button>
+                  <p class="form-note">I'll get back to you as soon as possible !</p>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Social Media Section -->
-  <section class="social-section">
-    <div class="container text-center">
-      <h2 class="section-title">Connect With Me</h2>
-      <p class="lead">Follow me on social media for updates and tech insights</p>
-      
-      <div class="social-links">
-        <a href="#" class="social-link" title="LinkedIn">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="#" class="social-link" title="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="#" class="social-link" title="Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" class="social-link" title="Facebook">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" class="social-link" title="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="#" class="social-link" title="YouTube">
-          <i class="fab fa-youtube"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="container">
-      <h2 class="cta-title">Ready to Start Your Project?</h2>
-      <p class="lead">Let's discuss how I can help bring your vision to life</p>
-      <a href="mailto:tresor.kalembo@email.com" class="cta-btn">
-        <i class="fas fa-envelope me-2"></i>Email Me Directly
-      </a>
     </div>
   </section>
 
