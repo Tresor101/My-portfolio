@@ -174,6 +174,20 @@
       color: white;
     }
 
+    .project-btn.frozen {
+      background: #9ca3af;
+      color: #6b7280;
+      cursor: not-allowed;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .project-btn.frozen:hover {
+      background: #9ca3af;
+      transform: none;
+      color: #6b7280;
+    }
+
     .project-btn.secondary {
       background: transparent;
       border: 2px solid var(--primary-color);
@@ -183,6 +197,22 @@
     .project-btn.secondary:hover {
       background: var(--primary-color);
       color: white;
+    }
+
+    .project-btn.secondary.frozen {
+      background: transparent;
+      border: 2px solid #9ca3af;
+      color: #6b7280;
+      cursor: not-allowed;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .project-btn.secondary.frozen:hover {
+      background: transparent;
+      border: 2px solid #9ca3af;
+      color: #6b7280;
+      transform: none;
     }
 
     .section-title {
@@ -245,7 +275,6 @@
         <button class="filter-btn active" data-filter="all">All Projects</button>
         <button class="filter-btn" data-filter="web">Web Development</button>
         <button class="filter-btn" data-filter="desktop">Desktop Apps</button>
-        <button class="filter-btn" data-filter="gis">GIS Solutions</button>
         <button class="filter-btn" data-filter="network">Networking</button>
       </div>
 
@@ -271,8 +300,8 @@
                 <span class="tech-tag">Responsive Design</span>
               </div>
               <div class="project-links">
-                <a href="#" class="project-btn">View Live</a>
-                <a href="#" class="project-btn secondary">View Code</a>
+                <a href="#" class="project-btn frozen">View Demo</a>
+                <a href="#" class="project-btn secondary frozen">Download Documentation</a>
               </div>
             </div>
           </div>
@@ -298,35 +327,8 @@
                 <span class="tech-tag">Crystal Reports</span>
               </div>
               <div class="project-links">
-                <a href="#" class="project-btn">View Demo</a>
-                <a href="#" class="project-btn secondary">Learn More</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- GIS Project -->
-        <div class="col-lg-4 col-md-6 project-item" data-category="gis">
-          <div class="project-card">
-            <div class="project-image">
-              <i class="fas fa-map-marked-alt"></i>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Environmental Monitoring GIS</h3>
-              <p class="project-description">
-                Advanced GIS solution for environmental monitoring with real-time data collection, 
-                spatial analysis, and automated reporting for environmental agencies.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">ArcGIS Enterprise</span>
-                <span class="tech-tag">WebGISDR</span>
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Spatial Analysis</span>
-                <span class="tech-tag">Data Visualization</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="project-btn">View Project</a>
-                <a href="#" class="project-btn secondary">Case Study</a>
+                <a href="#" class="project-btn frozen">View Demo</a>
+                <a href="#" class="project-btn secondary frozen">Download Documentation</a>
               </div>
             </div>
           </div>
@@ -352,8 +354,8 @@
                 <span class="tech-tag">Performance Monitoring</span>
               </div>
               <div class="project-links">
-                <a href="#" class="project-btn">View Details</a>
-                <a href="#" class="project-btn secondary">Architecture</a>
+                <a href="#" class="project-btn frozen">View Demo</a>
+                <a href="#" class="project-btn secondary frozen">Download Documentation</a>
               </div>
             </div>
           </div>
@@ -379,8 +381,8 @@
                 <span class="tech-tag">Payment Integration</span>
               </div>
               <div class="project-links">
-                <a href="#" class="project-btn">Visit Site</a>
-                <a href="#" class="project-btn secondary">Source Code</a>
+                <a href="#" class="project-btn frozen">View Demo</a>
+                <a href="#" class="project-btn secondary frozen">Download Documentation</a>
               </div>
             </div>
           </div>
@@ -406,8 +408,37 @@
                 <span class="tech-tag">Data Visualization</span>
               </div>
               <div class="project-links">
-                <a href="#" class="project-btn">Download</a>
-                <a href="#" class="project-btn secondary">Documentation</a>
+                <a href="#" class="project-btn frozen">View Demo</a>
+                <a href="#" class="project-btn secondary frozen">Download Documentation</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Warehouse Inventory Management System -->
+        <div class="col-lg-4 col-md-6 project-item" data-category="desktop">
+          <div class="project-card">
+            <div class="project-image">
+              <i class="fas fa-warehouse"></i>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Warehouse Inventory Management System</h3>
+              <p class="project-description">
+                Comprehensive warehouse management solution with real-time inventory tracking, 
+                advanced dashboard analytics, automated reorder alerts, and multi-location support 
+                for efficient warehouse operations.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">.NET Core</span>
+                <span class="tech-tag">SQL Server</span>
+                <span class="tech-tag">Dashboard UI</span>
+                <span class="tech-tag">Real-time Analytics</span>
+                <span class="tech-tag">Barcode Integration</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-btn frozen">View Demo</a>
+                <a href="#" class="project-btn secondary frozen">Download Documentation</a>
               </div>
             </div>
           </div>
