@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Tresor Tshibangu Kalembo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --accent-color: #f59e0b;
+      --dark-bg: #1f2937;
+      --light-bg: #f8fafc;
+      --text-primary: #1f2937;
+      --text-secondary: #6b7280;
+      --text-light: #ffffff;
+      --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      --gradient-accent: linear-gradient(135deg, var(--accent-color), #f97316);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background-color: var(--light-bg);
+    }
+
+    /* Navigation */
+    .navbar {
+      background: rgba(31, 41, 55, 0.95) !important;
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.8rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .navbar-nav .nav-link {
+      color: var(--text-light) !important;
+      font-weight: 500;
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem !important;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      background: var(--gradient-accent);
+      color: white !important;
+      transform: translateY(-2px);
+    }
+
+    /* Page Header */
+    .page-header {
+      background: var(--gradient-primary);
+      color: white;
+      padding: 8rem 0 4rem;
+      margin-top: 76px;
+    }
+
+    .page-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    /* Projects */
+    .projects-section {
+      padding: 5rem 0;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.3s ease;
+      margin-bottom: 2rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-image {
+      height: 200px;
+      background: var(--gradient-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .project-content {
+      padding: 2rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .project-description {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .project-tech {
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-tag {
+      display: inline-block;
+      background: var(--light-bg);
+      color: var(--primary-color);
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      margin: 0.2rem;
+      border: 1px solid var(--primary-color);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-btn {
+      flex: 1;
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      font-weight: 500;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .project-btn:hover {
+      background: var(--gradient-accent);
+      transform: translateY(-2px);
+      color: white;
+    }
+
+    .project-btn.secondary {
+      background: transparent;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+    }
+
+    .project-btn.secondary:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    /* Filter Buttons */
+    .filter-section {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      padding: 0.5rem 1.5rem;
+      margin: 0.25rem;
+      border-radius: 25px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    /* Project Stats */
+    .stats-section {
+      background: white;
+      padding: 4rem 0;
+      margin-top: 3rem;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .stat-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 2rem;
+      color: white;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Tresor T. Kalembo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="experience.html">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container text-center">
+      <h1 class="page-title">My Projects</h1>
+      <p class="lead">Showcasing Innovation Through Technology</p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects-section">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      
+      <!-- Filter Buttons -->
+      <div class="filter-section">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="web">Web Development</button>
+        <button class="filter-btn" data-filter="desktop">Desktop Apps</button>
+        <button class="filter-btn" data-filter="gis">GIS Solutions</button>
+        <button class="filter-btn" data-filter="network">Networking</button>
+      </div>
+
+      <div class="row" id="projects-container">
+        
+        <!-- Web Development Projects -->
+        <div class="col-lg-4 col-md-6 project-item" data-category="web">
+          <div class="project-card">
+            <div class="project-image">
+              <i class="fas fa-globe-americas"></i>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Corporate Website Redesign</h3>
+              <p class="project-description">
+                Complete redesign and development of a corporate website with modern responsive design, 
+                improved user experience, and enhanced performance optimization.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Bootstrap</span>
+                <span class="tech-tag">Responsive Design</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-btn">View Live</a>
+                <a href="#" class="project-btn secondary">View Code</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Application -->
+        <div class="col-lg-4 col-md-6 project-item" data-category="desktop">
+          <div class="project-card">
+            <div class="project-image">
+              <i class="fas fa-desktop"></i>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Inventory Management System</h3>
+              <p class="project-description">
+                Comprehensive desktop application for inventory management with real-time tracking, 
+                reporting capabilities, and integrated barcode scanning functionality.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">.NET Framework</span>
+                <span class="tech-tag">SQL Server</span>
+                <span class="tech-tag">Windows Forms</span>
+                <span class="tech-tag">Crystal Reports</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-btn">View Demo</a>
+                <a href="#" class="project-btn secondary">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GIS Project -->
+        <div class="col-lg-4 col-md-6 project-item" data-category="gis">
+          <div class="project-card">
+            <div class="project-image">
+              <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Environmental Monitoring GIS</h3>
+              <p class="project-description">
+                Advanced GIS solution for environmental monitoring with real-time data collection, 
+                spatial analysis, and automated reporting for environmental agencies.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">ArcGIS Enterprise</span>
+                <span class="tech-tag">WebGISDR</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Spatial Analysis</span>
+                <span class="tech-tag">Data Visualization</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-btn">View Project</a>
+                <a href="#" class="project-btn secondary">Case Study</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Network Project -->
+        <div class="col-lg-4 col-md-6 project-item" data-category="network">
+          <div class="project-card">
+            <div class="project-image">
+              <i class="fas fa-network-wired"></i>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Enterprise Network Infrastructure</h3>
+              <p class="project-description">
+                Complete network infrastructure design and implementation for a mid-sized enterprise, 
+                including security protocols, performance optimization, and disaster recovery planning.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Cisco Networking</span>
+                <span class="tech-tag">Network Security</span>
+                <span class="tech-tag">VLAN Configuration</span>
+                <span class="tech-tag">Firewall Setup</span>
+                <span class="tech-tag">Performance Monitoring</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-btn">View Details</a>
+                <a href="#" class="project-btn secondary">Architecture</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- E-learning Platform -->
+        <div class="col-lg-4 col-md-6 project-item" data-category="web">
+          <div class="project-card">
+            <div class="project-image">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">E-Learning Platform</h3>
+              <p class="project-description">
+                Interactive e-learning platform for programming education with video lessons, 
+                coding exercises, progress tracking, and certificate generation.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Video Streaming</span>
+                <span class="tech-tag">Payment Integration</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-btn">Visit Site</a>
+                <a href="#" class="project-btn secondary">Source Code</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Analysis Tool -->
+        <div class="col-lg-4 col-md-6 project-item" data-category="desktop">
+          <div class="project-card">
+            <div class="project-image">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Data Analysis Tool</h3>
+              <p class="project-description">
+                Powerful desktop application for data analysis and visualization with support for 
+                multiple data formats, statistical analysis, and interactive chart generation.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">Matplotlib</span>
+                <span class="tech-tag">Tkinter</span>
+                <span class="tech-tag">Data Visualization</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-btn">Download</a>
+                <a href="#" class="project-btn secondary">Documentation</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Stats -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6">
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Completed Projects</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-number">12+</div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="stat-number">10K+</div>
+            <div class="stat-label">Lines of Code</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-award"></i>
+            </div>
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Success Rate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Project filtering
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const projectItems = document.querySelectorAll('.project-item');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const filter = this.getAttribute('data-filter');
+          
+          // Update active button
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Filter projects
+          projectItems.forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+              item.style.display = 'block';
+              item.style.animation = 'fadeIn 0.5s ease-in-out';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Animate project cards on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      const projectCards = document.querySelectorAll('.project-card');
+      projectCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        observer.observe(card);
+      });
+    });
+
+    // Add fadeIn animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+
+</body>
+</html>

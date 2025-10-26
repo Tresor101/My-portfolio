@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Tresor Tshibangu Kalembo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --accent-color: #f59e0b;
+      --dark-bg: #1f2937;
+      --light-bg: #f8fafc;
+      --text-primary: #1f2937;
+      --text-secondary: #6b7280;
+      --text-light: #ffffff;
+      --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      --gradient-accent: linear-gradient(135deg, var(--accent-color), #f97316);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background-color: var(--light-bg);
+    }
+
+    /* Navigation */
+    .navbar {
+      background: rgba(31, 41, 55, 0.95) !important;
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.8rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .navbar-nav .nav-link {
+      color: var(--text-light) !important;
+      font-weight: 500;
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem !important;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      background: var(--gradient-accent);
+      color: white !important;
+      transform: translateY(-2px);
+    }
+
+    /* Page Header */
+    .page-header {
+      background: var(--gradient-primary);
+      color: white;
+      padding: 8rem 0 4rem;
+      margin-top: 76px;
+    }
+
+    .page-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 5rem 0;
+    }
+
+    .contact-card {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--light-bg);
+      border-radius: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-info-item:hover {
+      background: var(--gradient-primary);
+      color: white;
+      transform: translateX(10px);
+    }
+
+    .contact-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1.5rem;
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    .contact-info-item:hover .contact-icon {
+      background: white;
+      color: var(--primary-color);
+    }
+
+    .contact-details h5 {
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .contact-details p {
+      margin: 0;
+      color: var(--text-secondary);
+    }
+
+    .contact-info-item:hover .contact-details p {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Contact Form */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-control {
+      border: 2px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
+    }
+
+    .btn-submit {
+      background: var(--gradient-primary);
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-weight: 600;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background: var(--gradient-accent);
+      transform: translateY(-2px);
+    }
+
+    /* Social Links */
+    .social-section {
+      background: white;
+      padding: 4rem 0;
+      margin-top: 3rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .social-link {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--gradient-accent);
+      transform: translateY(-10px) scale(1.1);
+      color: white;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    /* Office Hours */
+    .office-hours {
+      background: var(--light-bg);
+      padding: 2rem;
+      border-radius: 15px;
+      margin-top: 2rem;
+    }
+
+    .office-hours h5 {
+      color: var(--primary-color);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hours-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .hours-item:last-child {
+      border-bottom: none;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: var(--gradient-primary);
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .cta-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .cta-btn {
+      background: white;
+      color: var(--primary-color);
+      padding: 1rem 2rem;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: var(--accent-color);
+      color: white;
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Tresor T. Kalembo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="experience.html">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container text-center">
+      <h1 class="page-title">Get In Touch</h1>
+      <p class="lead">Let's Turn Your Ideas Into Reality</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="row">
+        
+        <!-- Contact Information -->
+        <div class="col-lg-5">
+          <div class="contact-card">
+            <h3 class="section-title text-start">Contact Information</h3>
+            
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h5>Location</h5>
+                <p>Kinshasa, Democratic Republic of Congo<br>Available for Remote Work Worldwide</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-details">
+                <h5>Phone</h5>
+                <p>+243 XX XXX XXXX<br>Available 24/7 for urgent matters</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h5>Email</h5>
+                <p>tresor.kalembo@email.com<br>Response within 24 hours</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <div class="contact-details">
+                <h5>Website</h5>
+                <p>www.tresorkalembo.com<br>Portfolio & Blog Updates</p>
+              </div>
+            </div>
+
+            <!-- Office Hours -->
+            <div class="office-hours">
+              <h5>Availability</h5>
+              <div class="hours-item">
+                <span>Monday - Friday</span>
+                <span>8:00 AM - 6:00 PM</span>
+              </div>
+              <div class="hours-item">
+                <span>Saturday</span>
+                <span>10:00 AM - 4:00 PM</span>
+              </div>
+              <div class="hours-item">
+                <span>Sunday</span>
+                <span>Emergency Only</span>
+              </div>
+              <div class="hours-item">
+                <span>Time Zone</span>
+                <span>CAT (GMT+2)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="col-lg-7">
+          <div class="contact-card">
+            <h3 class="section-title text-start">Send Message</h3>
+            
+            <form id="contactForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">First Name *</label>
+                    <input type="text" class="form-control" name="firstName" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">Last Name *</label>
+                    <input type="text" class="form-control" name="lastName" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">Email Address *</label>
+                    <input type="email" class="form-control" name="email" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control" name="phone">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Company/Organization</label>
+                <input type="text" class="form-control" name="company">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Service Needed</label>
+                <select class="form-control" name="service">
+                  <option value="">Select a service</option>
+                  <option value="web-development">Web Development</option>
+                  <option value="desktop-apps">Desktop Applications</option>
+                  <option value="network-admin">Network Administration</option>
+                  <option value="gis-solutions">GIS Solutions</option>
+                  <option value="tech-training">Technical Training</option>
+                  <option value="consulting">Technical Consulting</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Project Budget</label>
+                <select class="form-control" name="budget">
+                  <option value="">Select budget range</option>
+                  <option value="under-500">Under $500</option>
+                  <option value="500-1000">$500 - $1,000</option>
+                  <option value="1000-2500">$1,000 - $2,500</option>
+                  <option value="2500-5000">$2,500 - $5,000</option>
+                  <option value="5000-plus">$5,000+</option>
+                  <option value="discuss">Let's Discuss</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Project Timeline</label>
+                <select class="form-control" name="timeline">
+                  <option value="">Select timeline</option>
+                  <option value="asap">ASAP</option>
+                  <option value="1-week">Within 1 week</option>
+                  <option value="2-4-weeks">2-4 weeks</option>
+                  <option value="1-3-months">1-3 months</option>
+                  <option value="3-months-plus">3+ months</option>
+                  <option value="flexible">Flexible</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Message *</label>
+                <textarea class="form-control" name="message" rows="5" placeholder="Tell me about your project, requirements, and goals..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-submit">
+                <i class="fas fa-paper-plane me-2"></i>Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media Section -->
+  <section class="social-section">
+    <div class="container text-center">
+      <h2 class="section-title">Connect With Me</h2>
+      <p class="lead">Follow me on social media for updates and tech insights</p>
+      
+      <div class="social-links">
+        <a href="#" class="social-link" title="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="#" class="social-link" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#" class="social-link" title="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="social-link" title="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="social-link" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="social-link" title="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="cta-title">Ready to Start Your Project?</h2>
+      <p class="lead">Let's discuss how I can help bring your vision to life</p>
+      <a href="mailto:tresor.kalembo@email.com" class="cta-btn">
+        <i class="fas fa-envelope me-2"></i>Email Me Directly
+      </a>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Contact form handling
+      const contactForm = document.getElementById('contactForm');
+      
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData);
+        
+        // Simple validation
+        if (!data.firstName || !data.lastName || !data.email || !data.message) {
+          alert('Please fill in all required fields');
+          return;
+        }
+        
+        // Simulate form submission
+        const submitBtn = contactForm.querySelector('.btn-submit');
+        const originalText = submitBtn.innerHTML;
+        
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+        submitBtn.disabled = true;
+        
+        setTimeout(() => {
+          alert('Thank you for your message! I will get back to you within 24 hours.');
+          contactForm.reset();
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 2000);
+      });
+
+      // Animate contact cards on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      const contactCards = document.querySelectorAll('.contact-card');
+      contactCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = `opacity 0.6s ease ${index * 0.2}s, transform 0.6s ease ${index * 0.2}s`;
+        observer.observe(card);
+      });
+
+      // Animate contact info items
+      const contactItems = document.querySelectorAll('.contact-info-item');
+      contactItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-30px)';
+        item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        observer.observe(item);
+      });
+
+      // Social links animation
+      const socialLinks = document.querySelectorAll('.social-link');
+      socialLinks.forEach((link, index) => {
+        link.style.opacity = '0';
+        link.style.transform = 'scale(0)';
+        link.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        observer.observe(link);
+      });
+    });
+  </script>
+
+</body>
+</html>
