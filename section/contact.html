@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Tresor Tshibangu Kalembo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../CSS/contact.css" rel="stylesheet">
+  <link href="../CSS/projects-navbar.css" rel="stylesheet">
+</head>
+<body>
+  <div class="animated-dots-bg"></div>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">Tresor T. Kalembo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="experience.html">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+ 
+  <section class="contact-stepper-section d-flex align-items-center justify-content-center" style="min-height: 90vh;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="contact-stepper-card d-flex flex-row">
+            <div class="stepper-bar d-none d-md-flex flex-column align-items-center py-5">
+              <div class="stepper-step active"><i class="fas fa-user"></i></div>
+              <div class="stepper-line"></div>
+              <div class="stepper-step"><i class="fas fa-tasks"></i></div>
+              <div class="stepper-line"></div>
+              <div class="stepper-step"><i class="fas fa-dollar-sign"></i></div>
+              <div class="stepper-line"></div>
+              <div class="stepper-step"><i class="fas fa-comment-dots"></i></div>
+            </div>
+            <div class="flex-grow-1 p-4 p-md-5">
+              <form>
+                <div class="step-section mb-4">
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="fas fa-user fa-lg me-2 text-primary"></i>
+                    <h5 class="mb-0">Contact Info</h5>
+                  </div>
+                  <div class="row g-3 mt-2">
+                    <div class="col-md-6">
+                      <input type="text" class="form-control form-control-lg" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="col-md-6">
+                      <input type="email" class="form-control form-control-lg" id="email" placeholder="Your Email" required>
+                    </div>
+                  </div>
+                  <!-- Icons moved to 'Other ways to contact me' section below -->
+                  <div class="row g-3 mt-2">
+                    <div class="col-md-6">
+                      <span class="text-muted"><i class="fas fa-map-marker-alt me-2"></i>Kuala Lumpur, Malaysia</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="step-section mb-4">
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="fas fa-tasks fa-lg me-2 text-primary"></i>
+                    <h5 class="mb-0">Project Details</h5>
+                  </div>
+                  <div class="row g-3 mt-2">
+                    <div class="col-md-6">
+                      <select class="form-select form-select-lg" id="webapp-type" required>
+                        <option value="" disabled selected>Select Web App Type</option>
+                        <option value="portfolio">Portfolio Website</option>
+                        <option value="ecommerce">E-commerce</option>
+                        <option value="blog">Blog/Content Site</option>
+                        <option value="dashboard">Dashboard/Admin Panel</option>
+                        <option value="booking">Booking/Reservation</option>
+                        <option value="landing">Landing Page</option>
+                        <option value="custom">Custom Solution</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <select class="form-select form-select-lg" id="timeframe" required>
+                        <option value="" disabled selected>Expected Time Frame</option>
+                        <option value="1week">1 Week</option>
+                        <option value="2weeks">2 Weeks</option>
+                        <option value="1month">1 Month</option>
+                        <option value="flexible">Flexible</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="step-section mb-4">
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="fas fa-dollar-sign fa-lg me-2 text-primary"></i>
+                    <h5 class="mb-0">Budget</h5>
+                  </div>
+                  <div class="row g-3 mt-2">
+                    <div class="col-md-6">
+                      <select class="form-select form-select-lg" id="budget" required>
+                        <option value="" disabled selected>Estimated Budget (USD)</option>
+                        <option value="<100">Less than $100</option>
+                        <option value="100-500">$100 - $500</option>
+                        <option value="500-1,000">$500 - $1,000</option>
+                        <option value=">1000">More than $1,000</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="step-section mb-4">
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="fas fa-comment-dots fa-lg me-2 text-primary"></i>
+                    <h5 class="mb-0">Message</h5>
+                  </div>
+                  <div class="row g-3 mt-2">
+                    <div class="col-12">
+                      <textarea class="form-control form-control-lg" id="project-details" placeholder="Project Details / Message" style="height: 120px" required></textarea>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-gradient w-100 py-2">Send Request</button>
+              </form>
+              <div class="other-contact-methods mt-5 text-center">
+                <div class="mb-2 fw-bold">Other ways to contact me</div>
+                <a href="mailto:tresorignace101@gmail.com" class="contact-link mx-3" title="Email">
+                  <i class="fas fa-envelope fa-2x"></i>
+                </a>
+                <a href="https://wa.me/601137923985" class="contact-link mx-3" target="_blank" title="WhatsApp">
+                  <i class="fab fa-whatsapp fa-2x"></i>
+                </a>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
