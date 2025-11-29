@@ -411,19 +411,19 @@
             <a class="nav-link active" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="./section/about.html">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="experience.html">Experience</a>
+            <a class="nav-link" href="./section/experience.html">Experience</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="services.html">Services</a>
+            <a class="nav-link" href="./section/services.html">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="projects.html">Projects</a>
+            <a class="nav-link" href="./section/projects.html">Projects</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="./section/contact.html">Contact</a>
           </li>
         </ul>
       </div>
@@ -551,68 +551,7 @@
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <script>
-    // Typing animation
-    document.addEventListener('DOMContentLoaded', function() {
-      const typedTextElement = document.getElementById('typed-text');
-      const textArray = [
-        'Technology Professional',
-        'GIS Analyst',
-        'Web Developer',
-        'Network Administrator',
-        'Desktop App Developer',
-        'Problem Solver',
-        'Innovation Driver'
-      ];
-      
-      let textIndex = 0;
-      let charIndex = 0;
-      let isDeleting = false;
-      
-      function typeText() {
-        const currentText = textArray[textIndex];
-        
-        if (isDeleting) {
-          typedTextElement.textContent = currentText.substring(0, charIndex - 1);
-          charIndex--;
-        } else {
-          typedTextElement.textContent = currentText.substring(0, charIndex + 1);
-          charIndex++;
-        }
-        
-        let typeSpeed = isDeleting ? 50 : 100;
-        
-        if (!isDeleting && charIndex === currentText.length) {
-          typeSpeed = 2000;
-          isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-          isDeleting = false;
-          textIndex = (textIndex + 1) % textArray.length;
-          typeSpeed = 500;
-        }
-        
-        setTimeout(typeText, typeSpeed);
-      }
-      
-      typeText();
-    });
-
-    // Download resume function
-    function downloadResume() {
-      alert('Resume download would be implemented here. Please contact me directly for my latest resume.');
-    }
-
-    // Smooth navbar background on scroll
-    window.addEventListener('scroll', function() {
-      const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(31, 41, 55, 0.98)';
-      } else {
-        navbar.style.background = 'rgba(31, 41, 55, 0.95)';
-      }
-    });
-  </script>
+  <script src="Js/index.js"></script>
 
 </body>
 </html>
