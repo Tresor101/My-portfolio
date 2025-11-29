@@ -1,0 +1,47 @@
+/* ==================== ROOT VARIABLES (Unified) ==================== */
+:root {
+	--primary-color: #2563eb;
+	--secondary-color: #1e40af;
+	--accent-color: #f59e0b;
+	--dark-bg: #1f2937;
+	--light-bg: #f8fafc;
+	--text-primary: #1f2937;
+	--text-secondary: #6b7280;
+	--text-light: #ffffff;
+	--gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+	--gradient-accent: linear-gradient(135deg, var(--accent-color), #f97316);
+	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+/* Navbar styles for projects page to match about/contact */
+.navbar {
+	background: rgba(31, 41, 55, 0.95) !important;
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	transition: all 0.3s ease;
+	padding: 1rem 0;
+}
+.navbar-brand {
+	font-weight: 700;
+	font-size: 1.8rem;
+	background: var(--gradient-primary);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+.navbar-nav .nav-link {
+	color: var(--text-light) !important;
+	font-weight: 500;
+	font-size: 1.1rem;
+	margin: 0 0.5rem;
+	padding: 0.5rem 1rem !important;
+	border-radius: 25px;
+	transition: all 0.3s ease;
+	position: relative;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+	background: var(--gradient-accent);
+	color: white !important;
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-lg);
+}

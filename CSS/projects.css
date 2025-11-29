@@ -1,0 +1,391 @@
+/* Project links container for Demo & Documentation */
+.project-links {
+	display: flex;
+	gap: 1.2rem;
+	justify-content: center;
+	margin-top: 0.5rem;
+	flex-wrap: wrap;
+}
+/* Project Demo & Documentation Button */
+/* Gradient Pill Button Design */
+/* Glassmorphism Button Design */
+
+/* Minimalist Text Link Button with Animated Underline */
+.project-btn {
+	margin-top: 0.7rem;
+	background: none;
+	border: none;
+	color: var(--primary-color);
+	font-weight: 700;
+	font-size: 1.08rem;
+	letter-spacing: 0.02em;
+	padding: 0.2rem 0;
+	width: 100%;
+	text-align: center;
+	text-decoration: none;
+	position: relative;
+	transition: color 0.18s;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	box-shadow: none;
+}
+.project-btn i {
+	margin-right: 0.4em;
+	font-size: 1.1em;
+}
+.project-btn::after {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	transform: translateX(-50%) scaleX(0);
+	width: 80%;
+	height: 2px;
+	background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+	border-radius: 2px;
+	transition: transform 0.22s cubic-bezier(.4,0,.2,1);
+}
+/* Enhanced hover effect for Demo & Documentation links */
+.project-btn:hover, .project-btn:focus {
+	color: var(--accent-color);
+	text-decoration: none;
+}
+.project-btn:hover i, .project-btn:focus i {
+	transform: translateY(-3px) scale(1.15);
+	transition: transform 0.18s cubic-bezier(.4,0,.2,1);
+	color: var(--accent-color);
+}
+.project-btn i {
+	margin-right: 0.4em;
+	font-size: 1.1em;
+	transition: transform 0.18s cubic-bezier(.4,0,.2,1), color 0.18s;
+}
+.project-btn:hover::after, .project-btn:focus::after {
+	transform: translateX(-50%) scaleX(1);
+}
+/* ==================== ROOT VARIABLES (Unified) ==================== */
+:root {
+	/* New Project Card Design */
+	.project-card {
+		background: rgba(255, 255, 255, 0.18);
+		border-radius: 2rem;
+		box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		border: 1.5px solid rgba(255, 255, 255, 0.22);
+		padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+		margin-bottom: 2.5rem;
+		transition: transform 0.22s, box-shadow 0.22s;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		min-height: 410px;
+		position: relative;
+	}
+	.project-card:hover {
+		transform: translateY(-10px) scale(1.035);
+		box-shadow: 0 20px 48px 0 rgba(31, 38, 135, 0.25);
+	}
+	.project-image {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		font-size: 2.5rem;
+		color: #fff;
+		margin-bottom: 1.2rem;
+		box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+		border: 4px solid rgba(255,255,255,0.18);
+	}
+	.project-content {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.project-title {
+		font-size: 1.3rem;
+		font-weight: 700;
+		margin-bottom: 0.4rem;
+		color: var(--primary-color);
+		text-align: center;
+	}
+	.project-description {
+		font-size: 1.02rem;
+		color: #222;
+		margin-bottom: 1.1rem;
+		text-align: center;
+		font-weight: 500;
+	}
+	.project-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		justify-content: center;
+	}
+	.project-tag {
+		background: var(--accent-color);
+		color: #fff;
+		border-radius: 2rem;
+		padding: 0.32rem 1.1rem;
+		font-size: 0.92rem;
+		font-weight: 600;
+		letter-spacing: 0.04em;
+		box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+		transition: background 0.18s;
+	}
+	.project-tag:hover {
+		background: var(--primary-color);
+	}
+	/* Responsive adjustments */
+	@media (max-width: 991px) {
+		.project-card {
+			min-height: 370px;
+			padding: 2rem 1rem 1.2rem 1rem;
+		}
+		.project-image {
+			width: 64px;
+			height: 64px;
+			font-size: 2rem;
+		}
+	}
+	@media (max-width: 767px) {
+		.project-card {
+			min-height: 320px;
+			padding: 1.5rem 0.7rem 1rem 0.7rem;
+		}
+		.project-image {
+			width: 54px;
+			height: 54px;
+			font-size: 1.5rem;
+		}
+		.project-title {
+			font-size: 1.08rem;
+		}
+		.project-description {
+			font-size: 0.95rem;
+		}
+		.project-tag {
+			font-size: 0.82rem;
+			padding: 0.22rem 0.7rem;
+		}
+	}
+	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+body {
+	font-family: 'Inter', sans-serif;
+	line-height: 1.6;
+	color: var(--text-primary);
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradientShift 15s ease infinite;
+	min-height: 100vh;
+	position: relative;
+	overflow-x: hidden;
+}
+
+body::before {
+	content: '';
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: 
+		radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+		radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+		radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+	animation: floatingPatterns 20s ease-in-out infinite;
+	pointer-events: none;
+	z-index: -1;
+}
+
+@keyframes gradientShift {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes floatingPatterns {
+	0%, 100% {
+		transform: translateY(0px) rotate(0deg);
+		opacity: 0.3;
+	}
+	50% {
+		transform: translateY(-20px) rotate(180deg);
+		opacity: 0.6;
+	}
+}
+
+/* Back to Home */
+.back-to-home {
+	position: fixed;
+	top: 2rem;
+	left: 2rem;
+	z-index: 1000;
+}
+
+.home-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	background: var(--gradient-primary);
+	color: white;
+	padding: 0.75rem 1.5rem;
+	border-radius: 25px;
+	text-decoration: none;
+	font-weight: 600;
+	transition: all 0.3s ease;
+	box-shadow: var(--shadow-lg);
+}
+
+.home-link:hover {
+	background: var(--gradient-accent);
+	transform: translateY(-2px);
+	color: white;
+}
+
+/* Page Header */
+.page-header {
+	background: url('../facepic.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	color: white;
+	padding: 8rem 0 4rem;
+	position: relative;
+}
+
+.page-title {
+	font-size: 3.5rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+}
+
+/* Projects */
+.projects-section {
+	padding: 5rem 0;
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	border-radius: 20px;
+	margin: 2rem;
+	position: relative;
+}
+
+.projects-section::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 20px;
+	z-index: -1;
+}
+
+.project-card {
+	background: rgba(255, 255, 255, 0.95);
+	backdrop-filter: blur(15px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+	transition: all 0.3s ease;
+	margin-bottom: 2rem;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.project-card:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.project-image {
+	height: 200px;
+	background: var(--gradient-primary);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-size: 3rem;
+	position: relative;
+	overflow: hidden;
+}
+
+.project-image::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.1);
+}
+
+.project-content {
+	padding: 2rem;
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.project-title {
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: var(--primary-color);
+	margin-bottom: 1rem;
+}
+
+.project-description {
+	color: var(--text-secondary);
+	line-height: 1.7;
+	margin-bottom: 1.5rem;
+}
+
+.project-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-bottom: 1rem;
+}
+
+.project-tag {
+	background: var(--gradient-accent);
+	color: white;
+	padding: 0.3rem 1rem;
+	border-radius: 25px;
+	font-size: 0.95rem;
+	font-weight: 500;
+}
+
+.project-links {
+	margin-top: auto;
+}
+
+.project-link {
+	color: var(--primary-color);
+	font-weight: 600;
+	text-decoration: none;
+	margin-right: 1rem;
+	transition: color 0.2s;
+}
+
+.project-link:hover {
+	color: var(--accent-color);
+	text-decoration: underline;
+}

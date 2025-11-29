@@ -1,0 +1,370 @@
+/* ==================== ROOT VARIABLES (Unified) ==================== */
+:root {
+	--primary-color: #2563eb;
+	--secondary-color: #1e40af;
+	--accent-color: #f59e0b;
+	--dark-bg: #1f2937;
+	--light-bg: #f8fafc;
+	--text-primary: #1f2937;
+	--text-secondary: #6b7280;
+	--text-light: #ffffff;
+	--gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+	--gradient-accent: linear-gradient(135deg, var(--accent-color), #f97316);
+	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* ==================== ROOT VARIABLES ==================== */
+:root {
+	--primary-color: #2563eb;
+	--secondary-color: #1e40af;
+	--accent-color: #f59e0b;
+	--dark-bg: #1f2937;
+	--light-bg: #f8fafc;
+	--text-primary: #1f2937;
+	--text-secondary: #6b7280;
+	--text-light: #ffffff;
+	--gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+	--gradient-accent: linear-gradient(135deg, var(--accent-color), #f97316);
+	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+body {
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	line-height: 1.6;
+	color: var(--text-primary);
+	background-color: var(--light-bg);
+	position: relative;
+}
+
+.about-bg-anim {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 0;
+	pointer-events: none;
+	overflow: hidden;
+}
+
+.page-header, .about-content, .navbar, .back-to-home {
+	position: relative;
+	z-index: 1;
+}
+
+/* ==================== NAVIGATION ==================== */
+.navbar {
+	background: rgba(31, 41, 55, 0.95) !important;
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	transition: all 0.3s ease;
+	padding: 1rem 0;
+}
+.navbar-brand {
+	font-weight: 700;
+	font-size: 1.8rem;
+	background: var(--gradient-primary);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+.navbar-nav .nav-link {
+	color: var(--text-light) !important;
+	font-weight: 500;
+	font-size: 1.1rem;
+	margin: 0 0.5rem;
+	padding: 0.5rem 1rem !important;
+	border-radius: 25px;
+	transition: all 0.3s ease;
+	position: relative;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+	background: var(--gradient-accent);
+	color: white !important;
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-lg);
+}
+
+/* ==================== PAGE HEADER ==================== */
+.page-header {
+	background: url('../facepic.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	min-height: 40vh;
+	display: flex;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 2rem;
+}
+.page-header::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.4);
+	backdrop-filter: blur(3px);
+	z-index: 1;
+}
+.page-header .container {
+	position: relative;
+	z-index: 2;
+	color: var(--text-light);
+}
+.page-title {
+	font-size: 2.8rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+	color: var(--text-light);
+}
+.lead {
+	font-size: 1.25rem;
+	color: var(--text-light);
+}
+
+/* ==================== ABOUT CONTENT ==================== */
+.about-content {
+	padding: 2rem 0 4rem 0;
+}
+.profile-section {
+	margin-bottom: 3rem;
+	background: rgba(34, 40, 49, 0.35); /* slightly darker glass */
+	border-radius: 24px;
+	box-shadow: 0 12px 40px 0 rgba(31,38,135,0.18), 0 1.5px 8px 0 rgba(0,0,0,0.10);
+	padding: 2.5rem 2rem 2rem 2rem;
+	position: relative;
+	overflow: hidden;
+	border: 1.5px solid rgba(255,255,255,0.30);
+	backdrop-filter: blur(10px);
+	display: flex;
+	align-items: center;
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+.profile-section::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 8px;
+	height: 100%;
+	background: var(--gradient-accent);
+	border-radius: 24px 0 0 24px;
+	opacity: 0.7;
+	z-index: 1;
+}
+.profile-section:hover {
+	transform: translateY(-8px) scale(1.02);
+	box-shadow: 0 16px 40px 0 rgba(31,38,135,0.18);
+	border-color: var(--accent-color);
+}
+.profile-section .row {
+	position: relative;
+	z-index: 2;
+	width: 100%;
+}
+.profile-section .profile-image {
+	border-width: 6px;
+	margin-bottom: 1.2rem;
+	box-shadow: 0 4px 24px rgba(37,99,235,0.10);
+}
+.profile-image {
+	width: 180px;
+	height: 180px;
+	object-fit: cover;
+	border-radius: 50%;
+	border: 5px solid var(--primary-color);
+	box-shadow: var(--shadow-lg);
+	margin-bottom: 1.5rem;
+}
+.section-title {
+	font-size: 2rem;
+	font-weight: 700;
+	color: var(--primary-color);
+	margin-bottom: 1.5rem;
+}
+.skills-section {
+	margin-top: 2rem;
+}
+.skill-item {
+	background: rgba(34, 40, 49, 0.35); /* slightly darker glass for better contrast */
+	border-radius: 20px;
+	box-shadow: 0 12px 40px 0 rgba(31,38,135,0.18), 0 1.5px 8px 0 rgba(0,0,0,0.10);
+	padding: 2rem 1.5rem 1.5rem 1.5rem;
+	margin-bottom: 2rem;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+	border: 1.5px solid rgba(255,255,255,0.30);
+	backdrop-filter: blur(10px);
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+.skill-item::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 6px;
+	height: 100%;
+	background: var(--gradient-primary);
+	border-radius: 20px 0 0 20px;
+	opacity: 0.7;
+}
+.skill-item:hover {
+	transform: translateY(-8px) scale(1.03);
+	box-shadow: 0 16px 40px 0 rgba(31,38,135,0.18);
+	border-color: var(--primary-color);
+}
+.skill-icon {
+	width: 56px;
+	height: 56px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto 1rem auto;
+	border-radius: 50%;
+	background: var(--gradient-primary);
+	color: #fff;
+	font-size: 2rem;
+	box-shadow: 0 2px 8px rgba(37,99,235,0.10);
+	transition: background 0.3s, color 0.3s;
+	z-index: 1;
+	position: relative;
+}
+.skill-item:hover .skill-icon {
+	background: var(--gradient-accent);
+	color: #fff;
+}
+.progress {
+	height: 8px;
+	border-radius: 4px;
+	background: #e5e7eb;
+}
+.progress-bar {
+	border-radius: 4px;
+}
+
+/* ==================== BACK TO HOME LINK ==================== */
+.back-to-home {
+	margin: 1.5rem 0 1rem 0;
+}
+.home-link {
+	color: var(--primary-color);
+	font-weight: 500;
+	text-decoration: none;
+	transition: color 0.2s;
+}
+.home-link:hover {
+	color: var(--accent-color);
+	text-decoration: underline;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 768px) {
+	.profile-image {
+		width: 120px;
+		height: 120px;
+	}
+	.page-title {
+		font-size: 2rem;
+	}
+	.section-title {
+		font-size: 1.3rem;
+	}
+	.skill-item {
+		padding: 1rem 0.7rem;
+	}
+	.profile-section {
+		flex-direction: column !important;
+		padding: 1.5rem 0.7rem 1.2rem 0.7rem;
+		margin-bottom: 2rem;
+	}
+	.profile-section .row {
+		flex-direction: column !important;
+		gap: 1.2rem;
+	}
+	.profile-section .col-lg-4,
+	.profile-section .col-lg-8 {
+		max-width: 100%;
+		flex: 0 0 100%;
+		text-align: center;
+		padding: 0;
+	}
+	.profile-section .col-lg-8 {
+		margin-top: 0.5rem;
+	}
+	.skills-section {
+		margin-top: 1.2rem;
+		padding: 0 0.5rem;
+	}
+	.skill-item {
+		margin-bottom: 1.2rem;
+		padding: 1rem 0.5rem;
+	}
+	.lead {
+		font-size: 1.05rem;
+	}
+}
+
+@media (max-width: 576px) {
+	.page-header {
+		min-height: 28vh;
+		padding: 1.2rem 0 0.7rem 0;
+		background-attachment: scroll;
+	}
+	.profile-section {
+		padding: 1rem 0.3rem 0.7rem 0.3rem;
+		margin-bottom: 1.2rem;
+	}
+	.profile-image {
+		width: 90px;
+		height: 90px;
+		margin-bottom: 0.7rem;
+	}
+	.section-title {
+		font-size: 1.1rem;
+		margin-bottom: 0.7rem;
+	}
+	.skills-section {
+		margin-top: 0.7rem;
+		padding: 0 0.2rem;
+	}
+	.skill-item {
+		padding: 0.7rem 0.2rem;
+		font-size: 0.97rem;
+	}
+	.skill-icon {
+		width: 38px;
+		height: 38px;
+		font-size: 1.2rem;
+		margin-bottom: 0.5rem;
+	}
+	.progress {
+		height: 6px;
+	}
+	.lead {
+		font-size: 0.97rem;
+	}
+}
+
+@media (max-width: 400px) {
+	.page-title {
+		font-size: 1.2rem;
+	}
+	.section-title {
+		font-size: 0.95rem;
+	}
+	.lead {
+		font-size: 0.85rem;
+	}
+	.profile-section {
+		padding: 0.5rem 0.1rem 0.3rem 0.1rem;
+	}
+	.skills-section {
+		padding: 0 0.05rem;
+	}
+}
