@@ -7,400 +7,17 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* ==================== ROOT VARIABLES ==================== */
-    :root {
-      --primary-color: #2563eb;
-      --secondary-color: #1e40af;
-      --accent-color: #f59e0b;
-      --dark-bg: #1f2937;
-      --light-bg: #f8fafc;
-      --text-primary: #1f2937;
-      --text-secondary: #6b7280;
-      --text-light: #ffffff;
-      --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      --gradient-accent: linear-gradient(135deg, var(--accent-color), #f97316);
-      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    }
-
-    /* ==================== BASE STYLES ==================== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      line-height: 1.6;
-      color: var(--text-primary);
-      background-color: var(--light-bg);
-    }
-
-    /* ==================== NAVIGATION ==================== */
-    .navbar {
-      background: rgba(31, 41, 55, 0.95) !important;
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.3s ease;
-      padding: 1rem 0;
-    }
-
-    .navbar-brand {
-      font-weight: 700;
-      font-size: 1.8rem;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .navbar-nav .nav-link {
-      color: var(--text-light) !important;
-      font-weight: 500;
-      font-size: 1.1rem;
-      margin: 0 0.5rem;
-      padding: 0.5rem 1rem !important;
-      border-radius: 25px;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .navbar-nav .nav-link:hover,
-    .navbar-nav .nav-link.active {
-      background: var(--gradient-accent);
-      color: white !important;
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    /* ==================== HERO SECTION ==================== */
-    .hero {
-      background: url('facepic.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(3px);
-      z-index: 1;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      animation: float 20s ease-in-out infinite;
-      z-index: 1;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      color: var(--text-light);
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: clamp(3rem, 6vw, 5rem);
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeInUp 1s ease-out 0.5s forwards;
-    }
-
-    .hero .lead {
-      font-size: clamp(1.2rem, 3vw, 1.8rem);
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeInUp 1s ease-out 1s forwards;
-    }
-
-    .typed-text {
-      color: var(--accent-color);
-      font-weight: 600;
-      display: inline-block;
-      min-width: 200px;
-      text-align: left;
-    }
-
-    .hero-buttons {
-      margin-top: 2rem;
-      opacity: 0;
-      animation: fadeInUp 1s ease-out 1.5s forwards;
-    }
-
-    .btn-hero {
-      padding: 1rem 2.5rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-      border-radius: 50px;
-      margin: 0.5rem;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .btn-hero-primary {
-      background: var(--gradient-accent);
-      color: white;
-      border: none;
-    }
-
-    .btn-hero-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-      color: white;
-    }
-
-    .btn-hero-secondary {
-      background: transparent;
-      color: white;
-      border: 2px solid white;
-    }
-
-    .btn-hero-secondary:hover {
-      background: white;
-      color: var(--primary-color);
-      transform: translateY(-3px);
-    }
-
-    /* ==================== QUICK LINKS SECTION ==================== */
-    .quick-links {
-      padding: 5rem 0;
-      background: linear-gradient(270deg, #667eea, #764ba2, #11998e, #38ef7d);
-      background-size: 800% 800%;
-      animation: gradientShift 8s ease infinite;
-      position: relative;
-      overflow: hidden;
-    }
-
-    @keyframes gradientShift {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    .quick-links::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='20' cy='20' r='3'/%3E%3Ccircle cx='80' cy='20' r='2'/%3E%3Ccircle cx='50' cy='50' r='4'/%3E%3Ccircle cx='20' cy='80' r='2'/%3E%3Ccircle cx='80' cy='80' r='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      animation: floatPattern 25s linear infinite;
-    }
-
-    .quick-links::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3Ccircle cx='90' cy='30' r='3'/%3E%3Ccircle cx='60' cy='60' r='2'/%3E%3Ccircle cx='30' cy='90' r='3'/%3E%3Ccircle cx='90' cy='90' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      animation: floatPattern 30s linear infinite reverse;
-    }
-
-    @keyframes floatPattern {
-      0% {
-        transform: translateX(-100px) translateY(0px);
-      }
-      50% {
-        transform: translateX(100px) translateY(-50px);
-      }
-      100% {
-        transform: translateX(-100px) translateY(0px);
-      }
-    }
-
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 3rem;
-      position: relative;
-      z-index: 3;
-      color: white;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(135deg, #fbbf24, #f59e0b);
-      border-radius: 2px;
-      box-shadow: 0 2px 10px rgba(251, 191, 36, 0.3);
-    }
-
-    .link-card {
-      background: white;
-      border-radius: 20px;
-      padding: 2.5rem 2rem;
-      text-align: center;
-      transition: all 0.3s ease;
-      border: 1px solid #e2e8f0;
-      height: 100%;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    .link-card:hover {
-      transform: translateY(-10px);
-      box-shadow: var(--shadow-lg);
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .link-icon {
-      width: 80px;
-      height: 80px;
-      background: var(--gradient-primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.5rem;
-      font-size: 2rem;
-      color: white;
-      transition: all 0.3s ease;
-    }
-
-    .link-card:hover .link-icon {
-      background: var(--gradient-accent);
-      transform: scale(1.1);
-    }
-
-    .link-title {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--primary-color);
-      margin-bottom: 1rem;
-    }
-
-    .link-description {
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    /* ==================== FOOTER ==================== */
-    footer {
-      background: var(--dark-bg);
-      color: var(--text-light);
-      text-align: center;
-      padding: 3rem 0 2rem;
-    }
-
-    .social-links {
-      margin-bottom: 2rem;
-    }
-
-    .social-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      background: var(--gradient-primary);
-      color: white;
-      border-radius: 50%;
-      margin: 0 0.5rem;
-      font-size: 1.2rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .social-link:hover {
-      background: var(--gradient-accent);
-      transform: translateY(-3px);
-      color: white;
-    }
-
-    /* ==================== ANIMATIONS ==================== */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    /* ==================== RESPONSIVE DESIGN ==================== */
-    @media (max-width: 768px) {
-      .navbar-nav {
-        text-align: center;
-        padding: 1rem 0;
-      }
-      
-      .navbar-nav .nav-link {
-        margin: 0.25rem 0;
-      }
-      
-      .hero-buttons {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .btn-hero {
-        width: 250px;
-        margin: 0.5rem 0;
-      }
-      
-      .link-card {
-        margin-bottom: 2rem;
-      }
-    }
-  </style>
+  <link rel="icon" type="image/png" href="tlogo.png">
+  <link rel="stylesheet" href="CSS/index.css">
 </head>
 <body>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Tresor T. Kalembo</a>
+    <div class="container d-flex align-items-center">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="tlogo.png" alt="Logo" style="height:40px;width:auto;margin-right:12px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+        Tresor Labs
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -434,10 +51,9 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <h1>Tresor Tshibangu Kalembo</h1>
+        <img src="tlogo.png" alt="Tresor Labs Logo" style="height:90px;width:auto;margin-bottom:1.5rem;border-radius:16px;box-shadow:0 4px 16px rgba(0,0,0,0.10);background:white;" />
         <p class="lead">I'm a <span class="typed-text" id="typed-text">Technology Professional</span></p>
         <p class="hero-quote">"Innovation distinguishes between a leader and a follower." - Steve Jobs</p>
-        
         <div class="hero-buttons">
           <a href="about.html" class="btn-hero btn-hero-primary">
             <i class="fas fa-user me-2"></i>Learn About Me
@@ -450,106 +66,34 @@
     </div>
   </section>
 
-  <!-- Quick Links Section -->
-  <section class="quick-links">
-    <div class="container">
-      <h2 class="section-title">Explore My Portfolio</h2>
-      <div class="row g-4">
-        <div class="col-lg-4 col-md-6">
-          <a href="about.html" class="link-card">
-            <div class="link-icon">
-              <i class="fas fa-user"></i>
-            </div>
-            <h3 class="link-title">About Me</h3>
-            <p class="link-description">
-              Learn about my background, skills, and passion for technology. Discover what drives my innovation and expertise.
-            </p>
-          </a>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <a href="experience.html" class="link-card">
-            <div class="link-icon">
-              <i class="fas fa-briefcase"></i>
-            </div>
-            <h3 class="link-title">Experience</h3>
-            <p class="link-description">
-              Explore my professional journey, work experience, and educational achievements in the technology sector.
-            </p>
-          </a>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <a href="services.html" class="link-card">
-            <div class="link-icon">
-              <i class="fas fa-cogs"></i>
-            </div>
-            <h3 class="link-title">Services</h3>
-            <p class="link-description">
-              Discover the range of professional services I offer, from web development to network administration and GIS solutions.
-            </p>
-          </a>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <a href="projects.html" class="link-card">
-            <div class="link-icon">
-              <i class="fas fa-project-diagram"></i>
-            </div>
-            <h3 class="link-title">Projects</h3>
-            <p class="link-description">
-              View my portfolio of completed projects, showcasing innovative solutions and technical expertise across various domains.
-            </p>
-          </a>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <a href="contact.html" class="link-card">
-            <div class="link-icon">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <h3 class="link-title">Contact</h3>
-            <p class="link-description">
-              Ready to collaborate? Get in touch to discuss your next project or learn more about how I can help achieve your goals.
-            </p>
-          </a>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <a href="#" class="link-card" onclick="downloadResume()">
-            <div class="link-icon">
-              <i class="fas fa-download"></i>
-            </div>
-            <h3 class="link-title">Resume</h3>
-            <p class="link-description">
-              Download my latest resume to see a comprehensive overview of my qualifications, experience, and achievements.
-            </p>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/tresortkalembo" class="social-link" target="_blank">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="mailto:tresorignace101@gmail.com" class="social-link">
-          <i class="fas fa-envelope"></i>
-        </a>
-        <a href="tel:+601137923985" class="social-link">
-          <i class="fas fa-phone"></i>
-        </a>
-      </div>
-      <p>&copy; 2025 Bangu Tech Solutions. All rights reserved.</p>
+      <p>&copy; 2025 Tresor Labs. All rights reserved.</p>
       <p class="text-muted">Built with passion for technology and innovation.</p>
     </div>
   </footer>
 
-  <!-- Scripts -->
+
+  <!-- Floating Action Buttons -->
+  <div id="floatingBtns" style="position:fixed;bottom:32px;right:32px;z-index:999;display:flex;flex-direction:column;gap:16px;align-items:flex-end;">
+    <a href="https://wa.me/601137923985" target="_blank" title="WhatsApp" style="background:#25D366;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 4px 16px rgba(31,38,135,0.10);font-size:1.5rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s,transform 0.2s;text-decoration:none;">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="mailto:tresorignace101@gmail.com" target="_blank" title="Email" style="background:#ea4335;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 4px 16px rgba(31,38,135,0.10);font-size:1.5rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s,transform 0.2s;text-decoration:none;">
+      <i class="fas fa-envelope" style="color:#fff;"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/tresortshibangu" target="_blank" title="LinkedIn" style="background:#0077b5;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 4px 16px rgba(31,38,135,0.10);font-size:1.5rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s,transform 0.2s;text-decoration:none;">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="https://www.tiktok.com/@yourusername" target="_blank" title="TikTok" style="background:#000;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 4px 16px rgba(31,38,135,0.10);font-size:1.5rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s,transform 0.2s;text-decoration:none;">
+      <i class="fab fa-tiktok"></i>
+    </a>
+    <a href="https://www.instagram.com/yourusername" target="_blank" title="Instagram" style="background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 4px 16px rgba(31,38,135,0.10);font-size:1.5rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s,transform 0.2s;text-decoration:none;">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="Js/index.js"></script>
 
